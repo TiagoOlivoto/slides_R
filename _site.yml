@@ -14,10 +14,10 @@ output:
     #   collapsed: false
     #   smooth_scroll: false
     css: config/site-style.css
-    # includes:
-    #   in_header: [config/MathJax.html, config/font-awesome.html]
-    #   before_body: config/site-header.html
-    #   after_body: config/site-footer.html
+    includes:
+      in_header: [config/MathJax.html, config/font-awesome.html]
+      before_body: config/site-header.html
+      after_body: config/site-footer.html
 navbar:
   left:
     - icon: fa-home
@@ -27,9 +27,13 @@ navbar:
       menu:
       - text: "Pliman Esalq"
         href: slides/pliman_esalq/index.html
-        icon: fa-file-pdf
+        icon: fa-file-code
   right:
     - icon: fa-user
-      href: http://leg.ufpr.br/~walmes
-    - icon: fa-git-square fa-lg
-      href: https://github.com/walmes/datavis
+      href: https://olivoto.netlify.app/
+    - icon: fa-github fa-lg
+      href: https://github.com/TiagoOlivoto
+    - icon: fa-twitter
+      href: https://twitter.com/tolivoto
+
+

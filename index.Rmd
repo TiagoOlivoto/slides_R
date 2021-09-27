@@ -1,11 +1,11 @@
 ---
 title: "Slides em R "
 subtitle: >
-  <p><span style = "font-size: 120%;">Com o pacote xaringan <code style = "font-size: 105%;">xaringan</code></span></p>
+  <p><span style = "font-size: 120%;">Com o pacote <a href="https://github.com/yihui/xaringan" target="_blank"><code>xaringan</code></a></span></p>
 author: >
   <br>
   <br>
-  Prof. <a href="http://www.leg.ufpr.br/~walmes">Tiago Olivoto</a><br>
+  Prof. <a href="https://olivoto.netlify.app/">Tiago Olivoto</a><br>
   Departamento de Ciências Agronômicas e Ambientais <a href="https://www.ufsm.br/unidades-universitarias/frederico-westphalen/departamentos/dcaa/"><i class="fa fa-external-link fa-xs fa-xs"></i></a><br>
   Universidade Federal de Santa Maria (UFSM) <a href="https://www.ufsm.br/"><i class="fa fa-external-link fa-xs"></i></a>
 output:
