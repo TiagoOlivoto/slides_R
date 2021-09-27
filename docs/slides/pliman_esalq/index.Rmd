@@ -584,9 +584,10 @@ image_segment_iter(img,
 ]
 
 .rc-70[
-```{r echo = FALSE}
+```{r echo = FALSE, fig.cap="Adaptado de Olivoto et al. (2021)"}
 knitr::include_graphics("figs/table_pliman.png")
 ```
+
 
 ]
 
