@@ -1,0 +1,28 @@
+---
+title: "Slides em R "
+subtitle: >
+  <p><span style = "font-size: 120%;">Com o pacote xaringan <code style = "font-size: 105%;">xaringan</code></span></p>
+author: >
+  <br>
+  <br>
+  Prof. <a href="http://www.leg.ufpr.br/~walmes">Tiago Olivoto</a><br>
+  Departamento de Ciências Agronômicas e Ambientais <a href="https://www.ufsm.br/unidades-universitarias/frederico-westphalen/departamentos/dcaa/"><i class="fa fa-external-link fa-xs fa-xs"></i></a><br>
+  Universidade Federal de Santa Maria (UFSM) <a href="https://www.ufsm.br/"><i class="fa fa-external-link fa-xs"></i></a>
+output:
+  html_document:
+    toc: false
+    number_sections: false
+    includes:
+      before_body: config/site-header.html
+      after_body: config/site-footer.html
+---
+
+```{r, include = FALSE}
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+
+
+# Sobre
+
+Site criado para compartilhamento de slides produzidos em R com o pacote `xaringan`.
