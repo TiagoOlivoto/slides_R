@@ -28,6 +28,7 @@ params:
   logo_height: 150px
 ---
 
+
 ```{r, write_author_css, include = FALSE}
 source("config/custom_css.R")
 source("config/setup.R")
