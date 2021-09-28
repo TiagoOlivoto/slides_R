@@ -156,6 +156,7 @@ df_bind <- rbind(logi_low, logi_high)
 
 ```
 
+Curvas simuladas utilizando o pacote `epifitter` (Alves, 2021)
 ]
 
 .panel[.panel-name[Curvas simuladas]
@@ -396,6 +397,7 @@ ggplot(B_df, aes(x = B)) +
 
 ]
 
+
 .rc-50[
 * Gráfico *Raster*
 ```{r, out.width='90%', echo = FALSE}
@@ -620,33 +622,68 @@ knitr::include_graphics('figs/soybean_rust.png')
 ]
 
 .rc-50[
-## Imagem processada
+# Imagem processada
 ```{r, out.width='55%', echo = FALSE, fig.cap="Severidade estimada: 17,69%"}
 knitr::include_graphics('figs/soybean_rust_mask.png')
 ```
 
 ]
 
+---
 
+# Software e instalação do pacote
+
+* Download do [software R](https://cran.r-project.org/bin/windows/base/)
+* Download da [IDE RStudio](https://www.rstudio.com/products/rstudio/download/)
+
+
+Instale a versão lançada do pliman do [CRAN](https://CRAN.R-project.org/package=pliman) com:
+
+```{r, eval = FALSE}
+install.packages ("pliman")
+
+```
+
+Ou instale a versão de desenvolvimento (**RECOMENDADA**) do [GitHub](https://github.com/TiagoOlivoto/pliman) com:
+
+```{r, eval = FALSE}
+devtools::install_github ("TiagoOlivoto/pliman")
+
+```
+
+Note que o pacote `devtools` é necessário.
+
+Depois de instalado, carregue o pacote com
+```{r}
+library(pliman)
+```
+
+
+.tiny[
+.bg-transparent.b--blue.ba.bw2.br3.shadow-5.ph2.mt2[
+Se você for um usuário do Windows, sugere-se primeiro baixar e instalar a versão mais recente do [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
+]
+]
 
 
 
 
 
 ---
-# References
+# Referências
 
 .tiny[
-* AGRIOS, G. N. **Plant pathology**. [S.l.]: Elsevier Academic Press, 2005. 
+* Agrios, G. N. (2005). Plant pathology. Elsevier Academic Press.
 
-* Bock, C. H., Chiang, K.-S., & Del Ponte, E. M. (2021). Plant disease severity estimated visually: a century of research, best practices, and opportunities for improving methods and practices to maximize accuracy. *Tropical Plant Pathology* 2021, 1–18. doi:10.1007/S40858-021-00439-Z
+* Alves, K. S., & Del Ponte, E. M. (2021). Analysis and simulation of plant disease progress curves in R: introducing the epifitter package. *Phytopathology Research*, 3(1), 1–13. doi:10.1186/S42483-021-00098-7
 
-* Nutter, Jr., F. W. (1993). Assessing the Accuracy, Intra-rater Repeatability, and Inter-rater Reliability of Disease Assessment Systems. *Phytopathology*, 83(8), 806. doi:10.1094/PHYTO-83-806
+* Bock, C. H., Chiang, K.-S., & Del Ponte, E. M. (2021). Plant disease severity estimated visually: a century of research, best practices, and opportunities for improving methods and practices to maximize accuracy. *Tropical Plant Pathology*, 1–18. doi:10.1007/S40858-021-00439-Z
 
 * Del Ponte, E. M., Pethybridge, S. J., Bock, C. H., Michereff, S. J., Machado, F. J., & Spolti, P. (2017). Standard Area Diagrams for Aiding Severity Estimation: Scientometrics, Pathosystems, and Methodological Trends in the Last 25 Years. *Phytopathology*, 107(10), 1161–1174. doi:10.1094/PHYTO-02-17-0069-FI
 
 * Franceschi, V. T., Alves, K. S., Mazaro, S. M., Godoy, C. V., Duarte, H. S. S., & Del Ponte, E. M. (2020). A new standard area diagram set for assessment of severity of soybean rust improves accuracy of estimates and optimizes resource use. *Plant Pathology*, 69(3), 495–505. doi:10.1111/ppa.13148
 
+* Nutter, Jr., F. W. (1993). Assessing the Accuracy, Intra-rater Repeatability, and Inter-rater Reliability of Disease Assessment Systems. *Phytopathology*, 83(8), 806. doi:10.1094/PHYTO-83-806
 
 * Olivoto, T., Andrade, S., & Del Ponte, E. M. (2021). Measuring plant disease severity in R: introducing and evaluating the pliman package. *OSF Prints*. doi:10.31219/OSF.IO/JFHM7
 
