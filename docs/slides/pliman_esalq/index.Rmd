@@ -648,7 +648,7 @@ knitr::include_graphics('figs/challenge.png')
 
 ## Pacotes sugeridos
 
-```{r}
+```{r eval=FALSE}
 install.packages("tidyverse") # manipulação de dados
 install.packages("rio")  # importação de dados
 install.packages("devtools") # instalação do github
