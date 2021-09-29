@@ -640,27 +640,27 @@ knitr::include_graphics('figs/challenge.png')
 
 ---
 
-# Software e instalação do pacote
+# Softwares e instalação dos pacotes
 
 * Download do [software R](https://cran.r-project.org/bin/windows/base/)
 * Download da [IDE RStudio](https://www.rstudio.com/products/rstudio/download/)
 
 
-Instale a versão lançada do pliman do [CRAN](https://CRAN.R-project.org/package=pliman) com:
+## Pacotes sugeridos
 
-```{r, eval = FALSE}
-install.packages ("pliman")
-
+```{r eval=FALSE}
+install.packages("tidyverse") # manipulação de dados
+install.packages("rio")  # importação de dados
+install.packages("devtools") # instalação do github
+install.packages("pliman")
 ```
 
-Ou instale a versão de desenvolvimento (**RECOMENDADA**) do [GitHub](https://github.com/TiagoOlivoto/pliman) com:
+Ou instale a versão de desenvolvimento (**RECOMENDADA**) do pliman do [GitHub](https://github.com/TiagoOlivoto/pliman) com o comando abaixo. Note que o pacote `devtools` é necessário.
 
 ```{r, eval = FALSE}
 devtools::install_github ("TiagoOlivoto/pliman")
 
 ```
-
-Note que o pacote `devtools` é necessário.
 
 Depois de instalado, carregue o pacote com
 ```{r}
