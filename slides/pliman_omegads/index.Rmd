@@ -9,7 +9,7 @@ bibliography: config/refs.bib
 csl: config/ABNT-UFPR-2011-Mendeley.csl
 output:
   xaringan::moon_reader:
-    self_contained: yes
+    self_contained: no
     nature:
       highlightStyle: github
       highlightLines: true
