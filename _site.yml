@@ -4,15 +4,12 @@ exclude: ["tempdir", "README.md", "_build.sh", "_deploy.sh", "_site.yml", "*.Rmd
 output:
   html_document:
     theme: united
-    highlight: haddock
+    highlight: tango
     fig_caption: yes
     fig_align: center
     number_sections: true
     toc: true
     toc_depth: 3
-    # toc_float:
-    #   collapsed: false
-    #   smooth_scroll: false
     css: config/site-style.css
     includes:
       in_header: [config/MathJax.html, config/font-awesome.html]
@@ -25,9 +22,16 @@ navbar:
     - icon: fa-television
       text: "Slides"
       menu:
-      - text: "Pliman Esalq"
+      - text: "Pliman - Esalq"
         href: slides/pliman_esalq/index.html
         icon: fa-file-code
+      - text: "Pliman - Omega Data Science"
+        href: slides/pliman_omegads/index.html
+        icon: fa-file-code
+    - icon: fa-laptop-code
+      text: "Tutorials"
+      href: https://olivoto.netlify.app/tutorials/
+        
   right:
     - icon: fa-user
       href: https://olivoto.netlify.app/
@@ -35,5 +39,3 @@ navbar:
       href: https://github.com/TiagoOlivoto
     - icon: fa-twitter
       href: https://twitter.com/tolivoto
-
-

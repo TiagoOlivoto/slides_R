@@ -21,8 +21,8 @@ output:
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
-
-
-# Sobre
-
-Site criado para compartilhamento de slides produzidos em R com o pacote `xaringan`.
+<!-- inicio academic icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<!-- final academic icons -->
+<!-- inicio font awesome -->
+<script src="https://kit.fontawesome.com/1f72d6921a.js" crossorigin="anonymous"></script>
