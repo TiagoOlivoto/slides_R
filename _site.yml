@@ -25,7 +25,7 @@ navbar:
       - text: "Pliman - Esalq"
         href: slides/pliman_esalq/index.html
         icon: fa-file-code
-      - text: "Pliman - Omega Data Science"
+      - text: "Pliman - Ômega Data Science"
         href: slides/pliman_omegads/index.html
         icon: fa-file-code
     - icon: fa-laptop-code
