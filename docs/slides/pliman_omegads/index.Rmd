@@ -87,6 +87,30 @@ xaringanExtra::use_scribble()
 ]
 ]
 
+
+---
+# Motivação
+
+.lc-30[
+* Automatização de processos   
+   - Severidade de doenças
+   - Número de grãos
+   - Forma dos grãos
+* Software gratuito/open-source
+* Processamento em lote
+* Paralelização
+* Reprodutibilidade
+]
+
+.rc-70[
+```{r, out.width='95%', echo = FALSE}
+knitr::include_graphics('figs/table.png')
+```
+http://dx.doi.org/10.1094/PDIS-03-15-0319-RE
+]
+
+
+
 ---
 
 # <i class="fas fa-glasses"></i> O pacote {pliman}
@@ -129,29 +153,6 @@ knitr::include_graphics('figs/map.png')
 ```
 
 https://tiagoolivoto.github.io/pliman/
-
-
----
-# Motivação
-
-.lc-30[
-* Automatização de processos   
-   - Severidade de doenças
-   - Número de grãos
-   - Forma dos grãos
-* Software gratuito/open-source
-* Processamento em lote
-* Paralelização
-* Reprodutibilidade
-]
-
-.rc-70[
-```{r, out.width='95%', echo = FALSE}
-knitr::include_graphics('figs/table.png')
-```
-http://dx.doi.org/10.1094/PDIS-03-15-0319-RE
-]
-
 
 
 ---
