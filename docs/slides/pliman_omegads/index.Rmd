@@ -15,7 +15,7 @@ output:
       highlightLines: true
       highlightSpans: true
       countIncrementalSlides: false
-      slideNumberFormat: "%current%"
+      slideNumberFormat: "%current% / %total%"
       ratio: "16:9"
     includes:
       in_header: config/MathJax.html
@@ -183,8 +183,6 @@ library(pliman)
 Se você for um usuário do Windows, sugere-se primeiro baixar e instalar a versão mais recente do [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
 ]
 ]
-
-
 
 
 ---
