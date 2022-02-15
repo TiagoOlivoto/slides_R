@@ -28,6 +28,9 @@ navbar:
       - text: "Luzes, câmera, {pliman}"
         href: slides/pliman_lca/index.html
         icon: fa-file-code
+      - text: "CCA Conecta"
+        href: slides/boas_vindas_ufsc/index.html
+        icon: fa-file-code
     - icon: fa-laptop-code
       text: "Tutorials"
       href: https://olivoto.netlify.app/tutorials/
