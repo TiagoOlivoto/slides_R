@@ -25,7 +25,7 @@ params:
   background: 'background.png'
   logo: 'logos.png'
   logo_width: 720px
-  logo_height: 140px
+  logo_height: 160px
 ---
 
 
