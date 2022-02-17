@@ -31,6 +31,9 @@ navbar:
       - text: "CCA Conecta"
         href: slides/boas_vindas_ufsc/index.html
         icon: fa-file-code
+      - text: "Pliman: image pesquisas"
+        href: slides/pliman_imagep/index.html
+        icon: fa-file-code
     - icon: fa-laptop-code
       text: "Tutorials"
       href: https://olivoto.netlify.app/tutorials/
