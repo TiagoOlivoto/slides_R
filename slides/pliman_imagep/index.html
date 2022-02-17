@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Análise de imagens no software R</title>
+    <meta charset="utf-8" />
+    <script src="index_files/header-attrs-2.11/header-attrs.js"></script>
+    <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="index_files/remark-css-0.0.1/fc.css" rel="stylesheet" />
+    <link href="index_files/remark-css-0.0.1/fc-fonts.css" rel="stylesheet" />
+    <link href="index_files/animate.css-3.7.2/animate.xaringan.css" rel="stylesheet" />
+    <link href="index_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="index_files/panelset-0.2.6/panelset.js"></script>
+    <script src="index_files/mark.js-8.11.1/mark.min.js"></script>
+    <link href="index_files/xaringanExtra-search-0.0.1/search.css" rel="stylesheet" />
+    <script src="index_files/xaringanExtra-search-0.0.1/search.js"></script>
+    <script>window.addEventListener('load', function() { window.xeSearch = new RemarkSearch({"position":"bottom-left","caseSensitive":false,"showIcon":true,"autoSearch":true}) })</script>
+    <link href="index_files/tachyons-4.12.0/tachyons.min.css" rel="stylesheet" />
+    <script src="index_files/js-cookie-3.0.0/js.cookie.js"></script>
+    <script src="index_files/peerjs-1.3.1/peerjs.min.js"></script>
+    <script src="index_files/tiny.toast-1.0.0/toast.min.js"></script>
+    <link href="index_files/xaringanExtra-broadcast-0.2.6/broadcast.css" rel="stylesheet" />
+    <script src="index_files/xaringanExtra-broadcast-0.2.6/broadcast.js"></script>
+    <script src="index_files/fabric-4.3.1/fabric.min.js"></script>
+    <link href="index_files/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
+    <script src="index_files/xaringanExtra-scribble-0.0.1/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <script src="index_files/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+    <link href="index_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="index_files/datatables-binding-0.20/datatables.js"></script>
+    <script src="index_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <link href="index_files/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="index_files/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="index_files/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="index_files/jszip-1.11.3/jszip.min.js"></script>
+    <link href="index_files/dt-ext-buttons-1.11.3/css/buttons.dataTables.min.css" rel="stylesheet" />
+    <script src="index_files/dt-ext-buttons-1.11.3/js/dataTables.buttons.min.js"></script>
+    <script src="index_files/dt-ext-buttons-1.11.3/js/buttons.html5.min.js"></script>
+    <script src="index_files/dt-ext-buttons-1.11.3/js/buttons.colVis.min.js"></script>
+    <script src="index_files/dt-ext-buttons-1.11.3/js/buttons.print.min.js"></script>
+    <link href="index_files/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="index_files/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+    <html><head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252"><script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          "HTML-CSS": {
+              scale: 85,
+              availableFonts: ["TeX"],
+          },
+          "TeX": {
+              extensions: ["color.js"]
+          }
+      });
+    </script>
+    </head><body></body></html>
+    <link rel="stylesheet" href="config/style.css" type="text/css" />
+    <link rel="stylesheet" href="config/custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Análise de imagens no software R
+## Uma visão geral do pacote {pliman}
+### <p>Prof. Dr. <strong><a href="https://olivoto.netlify.app/" style="color: inherit;">Tiago Olivoto</a></strong></p>
+### Universidade Federal de Santa Catarina | UFSC
+### 17 de fevereiro de 2022
+
+---
+
+
+
+
+
+
+
+
+# Motivação
+
+* Automatização de processos   
+* Severidade de doenças
+* Número de objetos (grãos, folhas, etc.)
+* Forma dos objetos
+* Software gratuito/open-source
+* Processamento em lote
+* Paralelização
+* Reprodutibilidade
+
+
+
+---
+
+# &lt;i class="fas fa-glasses"&gt;&lt;/i&gt; O pacote {pliman}
+
+&lt;img src="https://raw.githubusercontent.com/TiagoOlivoto/pliman/master/man/figures/logo_pliman.svg" align="right" width="250" height="250"/&gt;
+
+{pliman} (**pl**ant **im**age **an**alysis) foi concebido para analisar (também) imagens de plantas, especialmente relacionadas à análise de folhas e sementes.  O pacote irá ajudá-lo a:
+
+* Mensurar a severidade de doenças foliares;
+* Contar o número de lesões;
+* Obter características da forma das lesões;
+* Contar objetos em uma imagem;
+* Obter características de objetos (área, perímetro, raio, circularidade, excentricidade, solidez);
+* Obter os valores RGB para cada objeto em uma imagem;
+* Obter as coordenadas de objetos;
+* Obter os contornos de objetos;
+* Obter o *convex hull*;
+* Isolar objetos;
+* Plotar medidas de objetos.
+
+
+---
+# &lt;i class="fas fa-glasses"&gt;&lt;/i&gt; Workflow do pacote {pliman}
+
+
+&lt;img src="figs/workflow_pliman.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+
+# &lt;i class="fas fa-glasses"&gt;&lt;/i&gt; Abrangência
+
+.lc-80[
+&lt;img src="figs/map.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.rc-20[
+&lt;img src="figs/qrcode_pliman.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+[Site do pacote](https://tiagoolivoto.github.io/pliman/)
+]
+
+
+---
+
+# &lt;i class="fa fa-book"&gt;&lt;/i&gt; Referências
+
+
+.lc-50[
+&lt;img src="figs/paper_mee.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;i class="fa fa-book"&gt;&lt;/i&gt;Veja o artigo [aqui](https://www.researchgate.net/publication/357909074_Lights_camera_pliman_An_R_package_for_plant_image_analysis)
+]
+
+.rc-50[
+&lt;img src="figs/paper_tpp.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;i class="fa fa-book"&gt;&lt;/i&gt;Veja o artigo [aqui](https://www.researchgate.net/publication/358646216_Measuring_plant_disease_severity_in_R_introducing_and_evaluating_the_pliman_package)
+]
+
+
+---
+# Instalação
+
+
+```r
+install.packages("pliman")
+```
+
+Ou instale a versão de desenvolvimento do pliman do [GitHub](https://github.com/TiagoOlivoto/pliman) com o comando abaixo. Note que o pacote `devtools` é necessário.
+
+
+```r
+# instalação do github
+if(!require(devtools)){
+  install.packages("devtools")
+}
+install_github ("TiagoOlivoto/pliman")
+```
+
+Depois de instalado, carregue o pacote com
+
+```r
+library(pliman)
+```
+
+.tiny[
+.bg-transparent.b--blue.ba.bw2.br3.shadow-5.ph2.mt2[
+Se você for um usuário do Windows, sugere-se primeiro baixar e instalar a versão mais recente do [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
+]
+]
+
+
+---
+
+# Imagens são compostas por elementos de imagem (pixels)
+
+&lt;img src="figs/scheme_pixels.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+# Imagens são interpretadas como matrizes (arrays)
+
+.lc-50[
+
+```r
+img &lt;- image_pliman("sev_leaf.jpg")
+dim(img)
+```
+
+```
+## [1] 490 557   3
+```
+
+```r
+pixels &lt;- img@.Data[1:3, 1:3, 1:2]
+pixels
+```
+
+```
+## , , 1
+## 
+##             [,1]        [,2]        [,3]
+## [1,] 0.007843137 0.007843137 0.007843137
+## [2,] 0.007843137 0.007843137 0.007843137
+## [3,] 0.007843137 0.007843137 0.007843137
+## 
+## , , 2
+## 
+##           [,1]      [,2]      [,3]
+## [1,] 0.3019608 0.3019608 0.3019608
+## [2,] 0.3019608 0.3019608 0.3019608
+## [3,] 0.3019608 0.3019608 0.3019608
+```
+]
+
+.rc-50[
+
+```r
+plot(img)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-11-1.svg" width="75%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+
+---
+# O espaço de cores RGB
+&lt;img src="figs/additive_colors.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+Fonte: https://bit.ly/3AKlIOQ
+
+
+
+
+
+---
+# O espaço de cores RGB
+
+&lt;img src="figs/scheme_rgb_leaf.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+
+---
+# Binarização
+.lc-50[
+
+```r
+soy &lt;- image_pliman("soybean_touch.jpg", plot = TRUE)
+```
+
+&lt;img src="index_files/figure-html/segmentation-1.svg" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+.rc-50[
+
+```r
+image_binary(soy, ncol = 2)
+```
+
+&lt;img src="index_files/figure-html/segmentation1-1.svg" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+
+
+
+
+
+---
+
+## Desafio
+
+### Qual a *severidade* estimada na imagem abaixo?
+
+.lc-30[
+&lt;img src="figs/soybean_rust.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.rc-70[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figs/soybean_rust_sad.png" alt="Diagramas de área padrão para ferrugem da soja (Franceschi et al. 2020)" width="90%" /&gt;
+&lt;p class="caption"&gt;Diagramas de área padrão para ferrugem da soja (Franceschi et al. 2020)&lt;/p&gt;
+&lt;/div&gt;
+
+
+]
+
+
+---
+## Thresholding (limiar)
+
+
+.panelset.sideways.left[
+.panel[.panel-name[Aquisição da imagem]
+
+```r
+sev &lt;- image_pliman("sev_leaf.jpg", plot = TRUE)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-16-1.svg" width="65%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.panel[.panel-name[Thresholding]
+
+.lc-50[
+* Densidade dos valores de **B**
+
+```r
+ind &lt;-
+  image_index(sev,
+              index = "B",
+              show_image = FALSE)
+plot(ind, type = "density")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-17-1.svg" width="90%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+.rc-50[
+* Gráfico *Raster*
+
+```r
+plot(ind, type = "raster")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-18-1.svg" width="90%" style="display: block; margin: auto;" /&gt;
+
+]
+]
+
+
+
+.panel[.panel-name[Segmentação]
+.lc-50[
+
+```r
+image_index(sev, index = "B")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-19-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+.rc-50[
+
+```r
+image_segment(sev, index = "B")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-20-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+]
+
+.panel[.panel-name[Índices para segmentação]
+<div id="htmlwidget-0eb6828b6c1154486afe" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0eb6828b6c1154486afe">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["R","G","B","NR","NG","NB","GB","RB","GR","BI","BIM","SCI","GLI","HI","NGRDI","NDGBI","NDRBI","I","S","VARI","HUE","HUE2","BGI","L","GRAY","GLAI","SAT","CI","SHP","RI"],["R","G","B","R/(R+G+B)","G/(R+G+B)","B/(R+G+B)","G/B","R/B","G/R","sqrt((R^2+G^2+B^2)/3)","sqrt((R*2+G*2+B*2)/3)","(R-G)/(R+G)","(2*G-R-B)/(2*G+R+B)","(2*R-G-B)/(G-B)","(G-R)/(G+R)","(G-B)/(G+B)","(R-B)/(R+B)","R+G+B","((R+G+B)-3*B)/(R+G+B)","(G-R)/(G+R-B)","atan(2*(B-G-R)/30.5*(G-R))","atan(2*(R-G-R)/30.5*(G-B))","B/G","R+G+B/3","0.299*R + 0.587*G + 0.114*B","(25*(G-R)/(G+R-B)+1.25)","(max(R,G,B) - min(R,G,B)) / max(R,G,B)","(R-B)/R","2*(R-G-B)/(G-B)","R**2/(B*G**3)"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Index<\/th>\n      <th>Equation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"dom":"<<t>Bp>","buttons":["copy","excel","print"],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+
+]
+
+
+.panel[.panel-name[Escolha do índice]
+
+```r
+image_segment(sev, index = "all", ncol = 6)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-22-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+
+
+.panel[.panel-name[Imagem segmentada]
+
+.lc-33[
+
+```r
+image_segment(
+  sev,
+  index = "NB",
+  threshold = 0.3
+)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-23-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+.lc-33[
+
+```r
+image_segment(
+  sev,
+  index = "NB",
+  threshold = 0.5
+)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-24-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+.lc-33[
+
+```r
+image_segment(
+  sev,
+  index = "NB",
+  threshold = 0.7
+)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-25-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+* Quando `threshold` é igual a `NULL` (padrão), o método de Otsu (1979) é aplicado.
+
+.tiny[
+.bg-transparent.b--blue.ba.bw2.br3.shadow-5.ph2.mt2[
+*An optimal threshold is selected by the discriminant criterion, namely, so as to maximize the separability of the resultant classes in gray levels* (Outsu, 1979)
+]
+]
+]
+]
+
+
+
+---
+
+## Aplicação
+
+
+```r
+image_segment_iter(sev,
+                   nseg = 2,
+                   index = c("NB", "GLI"),
+                   ncol = 3,
+                   threshold = c("Otsu", 0.2))
+```
+
+```
+##      image pixels    percent
+## 1 original 818790 100.000000
+## 2     seg1 461901  56.412633
+## 3     seg2  28920   6.261082
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-26-1.svg" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+---
+.lc-50[
+# Imagem original
+&lt;img src="figs/soybean_rust.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.rc-50[
+# Imagem processada
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figs/soybean_rust_mask.png" alt="Severidade estimada: 17,69%" width="50%" /&gt;
+&lt;p class="caption"&gt;Severidade estimada: 17,69%&lt;/p&gt;
+&lt;/div&gt;
+
+]
+
+
+---
+
+.lc-50[
+# Contagem de objetos
+&lt;img src="figs/vicia.jpg" width="85%" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.rc-50[
+
+```r
+vicia &lt;- analyze_objects(img, index = "B")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-30-1.svg" width="85%" style="display: block; margin: auto;" /&gt;
+
+```r
+vicia$statistics[1,]
+```
+
+```
+##   stat value
+## 1    n  1343
+```
+]
+
+
+---
+.lc-50[
+# Área foliar
+&lt;img src="index_files/figure-html/unnamed-chunk-31-1.svg" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.rc-50[
+
+```r
+la_res &lt;-
+  analyze_objects(la,
+                  watershed = FALSE,
+                  marker = "area",
+                  col_background = "blue")
+area &lt;- get_measures(la_res, dpi = 72)
+plot_measures(area,
+              measure = "area",
+              vjust = -30)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-32-1.svg" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+# Propriedades de objetos
+
+.lc-50[
+
+```r
+bean &lt;- image_import("figs/bean.jpg", plot = TRUE)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-33-1.svg" width="75%" style="display: block; margin: auto;" /&gt;
+]
+
+.rc-50[
+
+```r
+bean2_meas &lt;- 
+  analyze_objects(bean,
+                  index = "G",
+                  fill_hull = TRUE,
+                  watershed = FALSE,
+                  show_image = FALSE,
+                  contour_col = "white",
+                  col_background = "black")
+```
+
+
+
+&lt;img src="index_files/figure-html/unnamed-chunk-35-1.svg" width="75%" style="display: block; margin: auto;" /&gt;
+
+
+
+]
+
+
+
+
+
+---
+# Propriedades de objetos
+
+.lc-50[
+
+```r
+root &lt;- image_import("figs/root.jpg", plot = T)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-36-1.svg" width="75%" style="display: block; margin: auto;" /&gt;
+]
+
+.rc-50[
+
+```r
+r1_meas &lt;- 
+  analyze_objects(root, index = "B", invert = TRUE,
+                  tolerance = 3, lower_eccent = 0.95)
+r1_meas_cor &lt;- get_measures(r1_meas, dpi = 150)
+r1_meas_cor$metade_perimetro = r1_meas_cor$perimeter / 2
+plot_measures(r1_meas_cor, measure = "metade_perimetro")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-37-1.svg" width="75%" style="display: block; margin: auto;" /&gt;
+]
+
+
+
+
+
+
+---
+# RGB para cada objeto
+
+.lc-50[
+
+```r
+esverdeado &lt;- image_import("figs/esverdeado.jpg", plot = T)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-38-1.svg" width="75%" style="display: block; margin: auto;" /&gt;
+]
+
+.rc-50[
+
+```r
+rgb_soja &lt;- 
+  analyze_objects(esverdeado,
+                  index = "S",
+                  invert = TRUE,
+                  object_index = "G")
+plot_measures(rgb_soja,
+              measure = "G", # plot the mean of blue values for each object
+              col = "black")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-39-1.svg" width="75%" style="display: block; margin: auto;" /&gt;
+]
+
+
+
+
+---
+class: center
+
+# Análise de imagens no software R utilizando o pacote {pliman}
+
+
+
+.lc-50[
+
+&lt;center&gt;
+&lt;img src="config/avatar.jpg" alt="Avatar" style="border-radius: 50%; max-width: 50%; "&gt;&lt;/center&gt;
+
+&lt;i class="far fa-envelope"&gt;&lt;/i&gt; [tiago.olivoto@ufsc.com](mailto:tiago.olivoto@ufsc.com)&lt;br&gt;
+&lt;i class="far fa-envelope"&gt;&lt;/i&gt; [tiagoolivoto@gmail.com](mailto:tiagoolivoto@gmail.com)&lt;br&gt;
+&lt;i class="fas fa-home"&gt;&lt;/i&gt; [olivoto.netlify.app](https://olivoto.netlify.app/)&lt;br&gt;
+&lt;i class="ai ai-lattes ai"&gt;&lt;/i&gt;[Lattes](http://lattes.cnpq.br/2432360896340086)&lt;br&gt;
+&lt;i class="ai ai-google-scholar ai"&gt;&lt;/i&gt;[Scholar](https://scholar.google.com/citations?user=QjxIJkcAAAAJ&amp;hl=pt-BR)&lt;br&gt;
+&lt;i class="ai ai-researchgate ai"&gt;&lt;/i&gt;[Research Gate](https://www.researchgate.net/profile/Tiago_Olivoto2)&lt;br&gt;
+&lt;i class="fab fa-twitter"&gt;&lt;/i&gt; [@tolivoto](https://twitter.com/tolivoto)&lt;br&gt;
+&lt;i class="fab fa-github-square"&gt;&lt;/i&gt; [GitHub](https://github.com/TiagoOlivoto)
+
+]
+
+.rc-50[
+
+
+Slides criados usando os 📦 R:
+.tiny[
+[**xaringan**](https://github.com/yihui/xaringan)&lt;br&gt;
+[**xaringanthemer**](https://github.com/gadenbuie/xaringanthemer)&lt;br&gt;
+[**xaringanExtra**](https://github.com/gadenbuie/xaringanExtra)&lt;br&gt;
+[**knitr**](http://yihui.name/knitr)&lt;br&gt;
+[**R Markdown**](https://rmarkdown.rstudio.com) &lt;br&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt; Código disponível no [GitHub](https://github.com/TiagoOlivoto/slides_R)
+]
+
+
+
+.tiny[
+.bg-transparent.b--blue.ba.bw2.br3.shadow-5.ph2.mt2[
+*“Se você for curioso, independentemente de gênero, raça e extrato social, então pode ser um cientista.”*
+.tr[
+— [Barbara McClinton](http://usp.br/cienciaweb/2019/05/barbara-mcclintock-o-milho-e-o-premio-nobel/)
+]
+]
+]
+]
+
+
+
+&lt;!-- inicio academic icons --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"&gt;
+&lt;!-- final academic icons --&gt;
+
+
+&lt;!-- inicio font awesome --&gt;
+&lt;script src="https://kit.fontawesome.com/1f72d6921a.js" crossorigin="anonymous"&gt;&lt;/script&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"highlightSpans": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current% / %total%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
