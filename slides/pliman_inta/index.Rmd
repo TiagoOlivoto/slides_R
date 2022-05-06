@@ -1,9 +1,9 @@
 ---
-title: "Automatic image analysis for functional traits"
-subtitle: "& disease measurement in R"
+title: "Lights, camera {pliman}!"
+subtitle: "Analyzing images in R"
 author: >
   Prof. Dr. <strong><a href="https://olivoto.netlify.app/" style="color: inherit;">Tiago Olivoto</a></strong>\n
-date: 'May 05, 2022'
+date: 'May 06, 2022'
 institute: "Universidade Federal de Santa Catarina | UFSC"
 bibliography: config/refs.bib
 csl: config/ABNT-UFPR-2011-Mendeley.csl
@@ -54,31 +54,6 @@ xaringanExtra::use_scribble()
 
 
 
-# Breaking the ice
-
-
-* Why do we make research?
---
-
-* What is the problem to be solved?
---
-
-* Have we a relevant gap to fill?
---
-
-* What have others done?
---
-
-* How can we fill that gap?
---
-
-* Can we definitively fill that gap?
-
-
-
-
----
-
 # The problem
 
 .lc-70[
@@ -121,6 +96,7 @@ knitr::include_graphics('figs/quant.png')
 * ImageJ (Free and open-source)
 * APS Assess ($295.00)
    - iterative section
+   
 * Easy Leaf Area (Python)
 * Lamina (Java)
 * LeafArea (R)
@@ -146,6 +122,7 @@ knitr::include_graphics('figs/softwares.png')
 ```{r, out.width='60%', echo = FALSE, fig.cap=""}
 knitr::include_graphics('figs/scheme_pixels.png')
 ```
+
 
 
 
@@ -310,6 +287,7 @@ image_segment(
 ]
 
 
+
 ---
 # <i class="fas fa-glasses"></i> The package workflow
 
@@ -341,7 +319,9 @@ knitr::include_graphics('figs/paper_tpp.png')
 
 
 
-# <i class="fas fa-glasses"></i> 
+---
+
+# <i class="fas fa-glasses"></i> Audience
 
 .lc-80[
 ```{r, out.width='90%', echo = FALSE}
@@ -355,7 +335,7 @@ knitr::include_graphics('figs/map.png')
 knitr::include_graphics('figs/qrcode_pliman.png')
 ```
 
-[Site do pacote](https://tiagoolivoto.github.io/pliman/)
+[Package website](https://tiagoolivoto.github.io/pliman/)
 ]
 
 
@@ -476,39 +456,53 @@ plot_measures(meas, measure = "id", hjust = -60, vjust = 60, col = "red")
 ]
 
 
+
 ---
 # How many measures can we get?
+
+
 
 ```{r echo=FALSE}
 print_table(meas)
 ```
 
 
+ .Huge[... and counting]
+ 
+ 
+ 
+ 
+---
+# RGB values for each object
+
+.lc-50[
+```{r out.width="75%", echo=T}
+esverdeado <- image_import("figs/esverdeado.jpg", plot = T)
+```
+]
+
+.rc-50[
+```{r out.width="75%", eval=FALSE}
+rgb_soja <-
+  analyze_objects(esverdeado,
+                  object_index = "B")
+```
+
+```{r out.width="75%", echo=FALSE}
+rgb_soja <-
+  analyze_objects(esverdeado,
+                  object_index = "B")
+plot_measures(rgb_soja,
+              measure = "B",
+              col = "black")
+```
+
+]
+
+
 
 ---
-# The positive things behind a denied paper
-
-* June 11, 2021
-   - First submission
-
---
-* August 12, 2021
-   - *I regret to inform you that we are unable to publish your paper...*
-   - *...however, we would be willing to consider a new manuscript which takes into consideration the feedback you have received*
-
---
-* November 10, 2021
-   - New version of package
-   - New version of paper
-   - Resubmission
-
---
-* December 16, 2021
-   - *It is a pleasure to accept your manuscript...*
-
-
-
----
+.lc-50[
 # Is the gap definitively filled?
 
 * Still a long way to go
@@ -516,11 +510,22 @@ print_table(meas)
 * Semantic segmentation?
 * Convolutional Neural Networks
 
+]
+
+.rc-50[
+# Challenges
+
+```{r, out.width='60%', echo = FALSE}
+knitr::include_graphics('figs/challenge.png')
+```
+
+]
+
 
 ---
 class: center
 
-# Automatic image analysis for functional traits & disease measurement in R
+# Lights, camera {pliman}! analyzing images in R
 
 
 
@@ -542,8 +547,8 @@ class: center
 
 .rc-50[
 
-.Huge[
-See you soon!
+.huge[
+Thanks for watching
 ]
 
 Slides made with the R 📦
