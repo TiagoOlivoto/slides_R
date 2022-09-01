@@ -22,6 +22,9 @@ navbar:
     - icon: fa-television
       text: "Slides"
       menu:
+      - text: "Pliman: tutorial"
+        href: slides/pliman_tut/index.html
+        icon: fa-file-code
       - text: "Pliman: INTA"
         href: slides/pliman_inta/index.html
         icon: fa-file-code
