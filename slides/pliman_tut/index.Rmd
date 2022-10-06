@@ -1,10 +1,10 @@
 ---
-title: "Luz, câmera {pliman}!"
-subtitle: "Um pacote R para análise de imagens de plantas"
-author: >
-  Prof. Dr. <strong><a href="https://olivoto.netlify.app/" style="color: inherit;">Tiago Olivoto</a></strong>\n
-date: '05 de setembro de 2022'
-institute: "Universidade Federal de Santa Catarina | UFSC"
+title: "."
+subtitle: ""
+# author: >
+  # Prof. Dr. <strong><a href="https://olivoto.netlify.app/" style="color: inherit;">Tiago Olivoto</a></strong>\n
+date: ''
+institute: ""
 bibliography: config/refs.bib
 csl: config/ABNT-UFPR-2011-Mendeley.csl
 output:
@@ -24,8 +24,8 @@ params:
   footnote: 'Prof. Dr. Tiago Olivoto | UFSC'
   background: 'background.png'
   logo: 'logos.png'
-  logo_width: 960px
-  logo_height: 160px
+  logo_width: 1000px
+  logo_height: 562px
 ---
 
 
@@ -57,34 +57,37 @@ xaringanExtra::use_scribble()
 xaringanExtra::use_progress_bar(color = "#0051BA", location = "bottom")
 ```
 
-# O problema
+
+
+
+# Motivation
 
 .lc-70[
-```{r, out.width='55%', echo = FALSE}
-knitr::include_graphics('figs/soy_leaf.png')
+```{r, out.width ='55%', echo = FALSE}
+knitr::include_graphics ('figs/soy_leaf.png')
 ```
 
 ]
 .rc-30[
-* Qual a área 'lesionada' do folíolo?
-* Qual é a área do folíolo?
-* Quantos folíolos preciso analizar?
+* How much 'injured' area in the leaflet?
+* What is the area of the leaflet?
+* How many leaflets do I need to analyze?
 ]
 
 
 ---
 
-# Existe uma importante lacuna a ser preenchida?
+# Is there an important gap to fill?
 .lc-30[
-* De um a três minutos por imagem
-* Baixa escala na coleta de dados
-* E a manipulação dos dados?
-* E a análise dos dados?
-* E a apresentação dos dados?
+* One to three minutes per image
+* Low scale in data collection
+* What about data manipulation?
+* What about data analysis?
+* What about data presentation?
 ]
 
 .rc-70[
-```{r, out.width='85%', echo = FALSE}
+```{r, out.width ='85%', echo = FALSE}
 knitr::include_graphics('figs/quant.png')
 ```
 
@@ -92,24 +95,24 @@ knitr::include_graphics('figs/quant.png')
 
 
 ---
-# O que tem sido feito?
+# What has been done?
 
 .lc-50[
-* ImageJ (Grátis e de código aberto)
+* ImageJ (Free and open source)
 * APS Assess ($295.00)
-- Sessão iterativa
+- Iterative session
 
 * Easy Leaf Area (Python)
 * Lamina (Java)
 * LeafArea (R)
-- E com relação ao número e forma das folhas?
+- What about the number and shape of the leaves?
 
-* **Por que não mensurar, analisar dados e exibir os resultados em um único software?**
+* **Why not measuring, analyzing, and displaying the results using only one software?**
 ]
 
 
 .rc-50[
-```{r, out.width='83%', echo = FALSE}
+```{r, out.width ='83%', echo = FALSE}
 knitr::include_graphics('figs/softwares.png')
 ```
 
@@ -118,8 +121,8 @@ knitr::include_graphics('figs/softwares.png')
 
 ---
 
-# Como podemos preencher a lacuna existente?
-## Imagens digitais são compostas por elementos de imagem (pixels)
+# How can we fill that gap?
+## Digital images are composed of image elements (pixels)
 
 ```{r, out.width='60%', echo = FALSE, fig.cap=""}
 knitr::include_graphics('figs/scheme_pixels.png')
@@ -128,16 +131,16 @@ knitr::include_graphics('figs/scheme_pixels.png')
 
 
 ---
-# O espaço de cores RGB
+# The RGB color space
 
-```{r, out.width='85%', echo = FALSE, fig.cap=""}
+```{r, out.width ='85%', echo = FALSE, fig.cap =""}
 knitr::include_graphics('figs/scheme_rgb_leaf.png')
 ```
 
 
 
 ---
-# Imagens são interpretadas como arrays
+# Images are interpreted as arrays
 
 .lc-50[
 ```{r, out.width='75%', echo = TRUE, fig.cap=""}
@@ -156,11 +159,11 @@ plot(img)
 
 
 ---
-# Arrays podem ser manipulados no R!
+# Arrays can be manipulated in R!
 
 
 .panelset.sideways.left[
-.panel[.panel-name[Importação]
+.panel[.panel-name[Import]
 ```{r, out.width='65%'}
 sev <- image_pliman("sev_leaf.jpg", plot = TRUE)
 ```
@@ -170,21 +173,20 @@ sev <- image_pliman("sev_leaf.jpg", plot = TRUE)
 .panel[.panel-name[Thresholding]
 
 .lc-50[
-* Gráfico de densidade (**B**)
-```{r out.width='85%'}
+* Density plot (**B**)
+```{r out.width ='85%'}
 ind <- image_index(sev,
                    index = "B",
                    show_image = FALSE)
 plot(ind, type = "density")
-
 ```
 
 ]
 
 
 .rc-50[
-* Um gráfico *Raster*
-```{r, out.width='90%'}
+* Raster plot (**B**)
+```{r, out.width ='90%'}
 plot(ind, type = "raster")
 ```
 
@@ -193,7 +195,7 @@ plot(ind, type = "raster")
 
 
 
-.panel[.panel-name[Segmentação]
+.panel[.panel-name[Segmentation]
 .lc-50[
 ```{r, out.width='100%'}
 image_index(sev, index = "B")
@@ -208,7 +210,7 @@ image_segment(sev, index = "B")
 
 ]
 
-.panel[.panel-name[Índices para segmentação]
+. panel[.panel-name[Indexes for segmentation]
 ```{r echo=FALSE}
 library(DT)
 # Function to make HTML tables
@@ -230,22 +232,20 @@ print_table(ind[,1:2])
 
 ]
 
-
-.panel[.panel-name[Escolhendo um índice]
+.panel[.panel-name[Choosing an index]
 ```{r, out.width='100%', fig.width=20, fig.height=10}
 sev |> image_horizontal() |> image_index("all")
 ```
 ]
 
-.panel[.panel-name[Identificando a segmentação]
+.panel[.panel-name[Identifying the segmentation]
 ```{r, out.width='100%', fig.width=20, fig.height=10}
 sev |> image_horizontal() |> image_segment("all")
 ```
 ]
 
 
-.panel[.panel-name[Imagem segmentada]
-
+.panel[.panel-name[Segmented Image]
 .lc-33[
 ```{r, out.width='100%'}
 image_segment(
@@ -278,11 +278,11 @@ image_segment(
 ]
 
 
-* Quando `threshold` é `NULL` (default), o método de Otsu (1979) é usado.
+* When ` threshold ` is `NULL` (default), the Otsu's (1979) is used.
 
 .tiny[
 .bg-transparent.b--blue.ba.bw2.br3.shadow-5.ph2.mt2[
-*An optimal threshold is selected by the discriminant criterion, namely, so as to maximize the separability of the resultant classes in gray levels* (Outsu, 1979)
+*An optimal threshold is selected by the discriminant criterion, namely, so as to maximize the separability of the resulting classes in gray levels* (Otsu, 1979)
 ]
 ]
 ]
@@ -290,7 +290,7 @@ image_segment(
 
 
 ---
-# <i class="fas fa-glasses"></i> O pipeline do pacote
+# <i class =" fas fa-glasses "></i> The package pipeline
 
 
 ```{r, out.width='85%', echo = FALSE, fig.cap=""}
@@ -302,30 +302,29 @@ knitr::include_graphics('figs/workflow_pliman.png')
 
 ---
 
-# <i class="fa fa-book"></i> Referências
+# <i class =" fa fa -book"></i> References
 
 
 .lc-50[
-```{r, out.width='60%', echo = FALSE}
+```{r, out.width ='60%', echo = FALSE}
 knitr::include_graphics('figs/paper_mee.png')
 ```
-<i class="fa fa-book"></i>Veja o artigo aqui! [aqui](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13803)
+<i class =" fa fa -book"></i>See the article here! [here](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13803)
 ]
 
 .rc-50[
-```{r, out.width='60%', echo = FALSE}
+```{r, out.width ='60%', echo = FALSE}
 knitr::include_graphics('figs/paper_tpp.png')
 ```
-<i class="fa fa-book"></i>Veja o artigo aqui! [aqui](https://link.springer.com/article/10.1007/s40858-021-00487-5)
+<i class =" fa fa -book"></i>See the article here! [here](https://link.springer.com/article/10.1007/s40858-021-00487-5)
 ]
+
 
 ---
 class: center
 
-<a href="https://tiagoolivoto.github.io/pliman_tut/00_about.html"><i class="fas fa-laptop-code fa-10x"></i>
-
 .HUGE[
-**Aplicações**
+**Applications**
 ]
 
 
@@ -333,11 +332,10 @@ class: center
 
 ---
 .lc-50[
-# Fitopatometria (severidade)
+# Phytopathometry (severity)
 ```{r, out.width='85%', echo = TRUE}
 vid <- image_import("figs/videira.png",
                     plot = TRUE)
-
 ```
 
 ]
@@ -345,7 +343,7 @@ vid <- image_import("figs/videira.png",
 --
 .rc-50[
 ```{r, out.width='80%', echo=TRUE}
-sev <- 
+sev <-
   measure_disease(vid,
                   index_lb = "G",
                   index_dh = "G-R",
@@ -359,29 +357,27 @@ sev$severity
 
 ---
 .lc-50[
-# Fitopatometria (crescimento micelial)
-```{r, out.width='70%', echo = TRUE}
-fungo <- 
+# Phytopathometry (mycelial growth)
+```{r, out.width='73%', echo = TRUE}
+fungus <-
   image_import("figs/fungo.jpeg",
                plot = TRUE)
-
 ```
-
 ]
 
 --
 .rc-50[
 ```{r, out.width='70%', echo = TRUE}
-res <- 
-  analyze_objects(fungo, 
+res <-
+  analyze_objects(fungus,
                   index = "HUE",
                   invert = TRUE,
                   filter = 5,
                   watershed = FALSE,
                   contour_size = 6)
-get_measures(res, dpi = 90) |> 
-  plot_measures(measure = "area", 
-                col = "black",
+get_measures(res, dpi = 90) |>
+  plot_measures(measure = "area",
+                col = " black ",
                 size = 2)
 ```
 
@@ -389,20 +385,20 @@ get_measures(res, dpi = 90) |>
 
 
 ---
-# Acurácia nas mensurações
+# Accuracy in measurements
 
-```{r, out.width='70%', echo = FALSE, fig.cap="Linha de perfeita igualidade entre medidas obtidas pelo pliman e severidade 'real'."}
-knitr::include_graphics('figs/acuracia_sev.png')
+```{r, out.width ='70%', echo = FALSE, fig.cap ="Perfect equality line between pliman measurements and 'real' severity."}
+knitr::include_graphics ('figs/acuracia_sev.png')
 
 ```
 
-.footnote[Fonte: Olivoto et al. (2022)]
+.footnote[Source: Olivoto et al. (2022)]
 
 
 ---
 
 .lc-50[
-# Contagem de objetos (sementes de ervilhaca)
+# Object count (vetch seeds)
 ```{r, out.width='85%', echo = TRUE}
 img <- image_import("figs/vicia.jpg", plot = TRUE)
 
@@ -413,7 +409,7 @@ img <- image_import("figs/vicia.jpg", plot = TRUE)
 .rc-50[
 ```{r, out.width='85%'}
 vicia <- analyze_objects(img, index = "B")
-vicia$statistics[1,]
+vicia$statistics [ 1,]
 ```
 ]
 
@@ -422,9 +418,9 @@ vicia$statistics[1,]
 ---
 
 .lc-50[
-# Contagem de objetos (células)
+# Object count (cells)
 
-.footnote[Imagem: https://www.youtube.com/watch?v=PqHFsmS1_JY]
+.footnote[Image: https://www.youtube.com/watch?v=PqHFsmS1_JY]
 
 ```{r, out.width='80%', echo = TRUE}
 cell <- image_import("figs/cell.jpg", plot = TRUE)
@@ -436,13 +432,13 @@ cell <- image_import("figs/cell.jpg", plot = TRUE)
 --
 .rc-50[
 ```{r, out.width='80%'}
-tmp <- 
+tmp <-
   analyze_objects(cell,
                   index = "G",
-                  invert = TRUE, 
+                  invert = TRUE,
                   show_segmentation = TRUE)
 
-tmp$statistics[1,]
+tmp$ statistics [ 1,]
 ```
 ]
 
@@ -450,22 +446,22 @@ tmp$statistics[1,]
 
 
 ---
-# Acurácia nas mensurações
+# Accuracy in measurements
 
-```{r, out.width='50%', echo = FALSE, fig.cap="Linha de perfeita igualidade para contagem de objetos."}
-knitr::include_graphics('figs/acuracia_cont.png')
+```{r, out.width ='50%', echo = FALSE, fig.cap ="Perfect equality line between pliman count and 'real' number of objects"}
+knitr::include_graphics ('figs/acuracia_cont.png')
 
 ```
 
-.footnote[Fonte: Olivoto et al. (2022b)]
+.footnote[Source: Olivoto et al. (2022b)]
 
 
 
 
 ---
 .lc-50[
-# Área foliar
-```{r, out.width='80%', echo = FALSE}
+# Leaf area
+```{r, out.width ='80%', echo = FALSE}
 la <- image_import("figs/leaves.jpg", plot = TRUE)
 
 ```
@@ -489,7 +485,7 @@ plot_measures(area, measure = "area", size = 1.5, vjust = -30)
 
 ---
 .lc-50[
-# Acurácia nas medições de área foliar
+# Accuracy in leaf area measurements
 ```{r, out.width='75%', echo = FALSE, fig.cap="Pliman vs LeafArea"}
 knitr::include_graphics('figs/acuracia_area.png')
 
@@ -499,26 +495,26 @@ knitr::include_graphics('figs/acuracia_area.png')
 --
 
 .rc-50[
-# Em quanto tempo eu tenho as medidas?
-```{r, out.width='75%', echo = FALSE, fig.cap="Tempo de processamento"}
+# How quickly can we get the measurements?
+```{r, out.width ='75%', echo = FALSE, fig.cap ="Processing time"}
 knitr::include_graphics('figs/time.png')
 ```
 
 ]
 
-.footnote[Fonte: Olivoto et al. (2022b)]
+.footnote[Source: Olivoto et al. (2022b)]
 
 
 
 ---
-# Fexibilidade (diferentes backgrounds, etc...)
+# Flexibility (different color backgrounds, threshold value,  etc...)
 
 ```{r, out.width='70%', echo = FALSE, fig.cap="LeafArea vs pliman."}
 knitr::include_graphics('figs/area_leaf.png')
 
 ```
 
-.footnote[Fonte: Olivoto et al. (2022b)]
+.footnote[Source: Olivoto et al. (2022b)]
 
 
 
@@ -526,8 +522,8 @@ knitr::include_graphics('figs/area_leaf.png')
 
 ---
 .lc-50[
-# Comprimento, largura, perímetro...
-```{r, out.width='85%', echo = FALSE}
+# Length, width, perimeter...
+```{r, out.width ='85%', echo = FALSE}
 fla <- image_import("figs/flax.jpg", plot = TRUE) |> image_resize(50)
 
 ```
@@ -537,24 +533,24 @@ fla <- image_import("figs/flax.jpg", plot = TRUE) |> image_resize(50)
 
 .rc-50[
 ```{r, out.width='85%'}
-res <- 
-  analyze_objects(fla, 
+res <-
+  analyze_objects(fla,
                   reference = TRUE,
                   reference_area = 20,
-                  marker = "length")
+                  marker = " length ")
 ```
 
 ]
 
 
 ---
-# Quantas medidas podemos obter?
+# How many measurements can we obtain?
 
 ```{r echo=FALSE}
 apply(res$results, 2, round, digits = 2) |> print_table()
 ```
 
-.Huge[... e contando.]
+.Huge[...and counting.]
 
 
 
@@ -565,30 +561,30 @@ apply(res$results, 2, round, digits = 2) |> print_table()
 
 
 ---
-# É possível qualificar os objetos?
+# RGB values for each object?
 
 .lc-50[
-```{r out.width="75%", echo=T}
-esverdeado <- image_import("figs/esverdeado.jpg", plot = T)
+```{r out.width ="75%", echo =T}
+greenish <- image_import("figs/esverdeado.jpg", plot = T)
 ```
 ]
 
 --
 .rc-50[
-```{r out.width="75%", eval=FALSE}
-rgb_soja <-
-  analyze_objects(esverdeado,
+```{r out.width ="75%", eval =FALSE}
+rgb_soy <-
+  analyze_objects(greenish,
                   object_index = "B")
 
 ```
 
 ```{r out.width="75%", echo=FALSE}
-rgb_soja <-
-  analyze_objects(esverdeado,
+rgb_soy <-
+  analyze_objects(greenish,
                   object_index = "B")
-plot_measures(rgb_soja, measure = "B")
-indexes <- summary_index(rgb_soja, index = "B", cut_point = 0.3)
-cont <- object_contour(esverdeado, show_image = FALSE)
+plot_measures(rgb_soy, measure = "B")
+indexes <- summary_index(rgb_soy, index = "B", cut_point = 0.3)
+cont <- object_contour(greenish, show_image = FALSE)
 plot_contour(cont, id = indexes$ids, color = "black", lwd = 2)
 ```
 
@@ -596,19 +592,19 @@ plot_contour(cont, id = indexes$ids, color = "black", lwd = 2)
 
 
 ---
-# Estado nutricional de plantas?
+# Nutritional status of plants?
 
-```{r out.width="50%", eval=FALSE}
+```{r out.width ="50%", eval =FALSE}
 
 fla <- image_import("figs/flax.jpg") |> image_resize(50)
-lin <-  analyze_objects(fla,  reference = TRUE, reference_area = 20, object_index = "DGCI")
+lin <- analyze_objects(fla, reference = TRUE, reference_area = 20, object_index = "DGCI")
 plot_measures(lin, measure = "DGCI")
 ```
 
 
-```{r out.width="50%", echo=FALSE}
+```{r out.width ="50%", echo =FALSE}
 fla <- image_import("figs/flax.jpg") |> image_resize(50)
-lin <-  analyze_objects(fla,  reference = TRUE, reference_area = 20, object_index = "DGCI")
+lin <- analyze_objects(fla, reference = TRUE, reference_area = 20, object_index = "DGCI")
 plot_measures(lin, measure = "DGCI")
 ```
 
@@ -618,69 +614,75 @@ plot_measures(lin, measure = "DGCI")
 
 
 ---
-# Descritor de Fourier (em andamento...)
+# Fourier descriptor (in progress...)
 
-```{r out.width="85%", echo=FALSE, fig.cap="Aproximação da forma de objetos utilizando coeficientes de Fourier"}
+```{r out.width ="85%", echo =FALSE, fig.cap =""}
 knitr::include_graphics('figs/efourier.png')
 ```
 
+* Reconstructs the shape of objects using Fourier coefficients
+
+.footnote[Image source: [Flavia dataset](https://flavia.sourceforge.net/)]
 
 
 
 ---
-# Descritor de Fourier para diversidade fenotípica
+# Fourier descriptor for phenotypic diversity
 
-```{r out.width="60%", echo=FALSE}
+```{r out.width ="60%", echo =FALSE}
 knitr::include_graphics('figs/pca.png')
 ```
 
 
 
----
-# Dicas rápidas
 
-```{r out.width="100%", echo=FALSE}
+
+---
+# Quick tips
+
+```{r out.width ="100%", echo =FALSE}
 knitr::include_graphics('figs/dicas.png')
 ```
 
-* Background complexo (a)   
-* Gradientes de luminosidade (b)   
-* Subexposição (c)  
-* Áreas sombreadas (d)
-* Situação indicada (e)
+* Complex background (a)
+* Luminosity gradients (b)
+* Underexposure (c)
+* Shaded areas (d)
+* Indicated situation (e)
 
 ---
 .lc-50[
-# A lacuna está definitivamente preenchida?
+# Is the gap definitively filled?
 
-* Ainda ha um longo caminho a percorrer!
-* Threshold adaptativo?
-* Segmentação semântica?
-* Redes Neurais Convolucionais?
+* There is still a long way to go!
+* Adaptive threshold?
+* Semantic segmentation?
+* Convolutional Neural Networks?
 
 ]
 
 .rc-50[
-# Desafios
-```{r, out.width='90%', echo = FALSE}
+# Challenges
+```{r, out.width ='87%', echo = FALSE}
 knitr::include_graphics('figs/noise.png')
 ```
-
+.footnote[Image by [Syed Tuhin Ali](https://www.researchgate.net/profile/Syed-Tuhin-Ali-2)]
 ]
 
+
+<!-- --- -->
+<!-- class : center -->
+<!-- # More applications in this video -->
+
+<!-- <center> -->
+<!-- <iframe width="860" height="486" src="https://www.youtube.com/embed/JDqRUrTKYTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard- write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<!-- </center> -->
+
+
 ---
-class: center
-# Mais aplicações neste vídeo
+class : center
 
-<center>
-<iframe width="860" height="486" src="https://www.youtube.com/embed/JDqRUrTKYTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
-
-
----
-class: center
-
-# Luz, câmera {pliman}! Um pacote R para análise de imagens de plantas
+# Light, camera {pliman}! Analyzing plant images in R
 
 .lc-50[
 
@@ -701,33 +703,40 @@ class: center
 .rc-50[
 
 .huge[
-Obrigado!
+Thanks!
 ]
 
 
-Slides feitos com os 📦 R
+Slides made with the 📦 R
 .tiny[
-[**xaringan**](https://github.com/yihui/xaringan)<br>
-[**xaringanthemer**](https://github.com/gadenbuie/xaringanthemer)<br>
-[**xaringanExtra**](https://github.com/gadenbuie/xaringanExtra)<br>
-[**knitr**](http://yihui.name/knitr)<br>
-[**R Markdown**](https://rmarkdown.rstudio.com) <br>
-<i class="fas fa-code"></i> Veja o códígo usado em [GitHub](https://github.com/TiagoOlivoto/slides_R)
+[** xaringan**](https://github.com/yihui/xaringan )<br>
+[**xaringanthemer**]( https://github.com/gadenbuie/xaringanthemer)<br>
+[**xaringanExtra**]( https://github.com/gadenbuie/xaringanExtra)<br>
+[** knitr **]( http://yihui.name/ knitr)<br>
+[**R Markdown **]( https://rmarkdown.rstudio.com) <br>
+<i class =" fas fa-code "></i> See the code used in [GitHub](https://github.com/TiagoOlivoto/slides_R)
 ]
 
 
 
 .tiny[
 .bg-transparent.b--blue.ba.bw2.br3.shadow-5.ph2.mt2[
-*“Se você é curioso, independentemente de gênero, raça e estrato social, pode ser um cientista.”*
+*“If you are curious, regardless of gender, race and social stratum, you can be a scientist.”*
 .tr[
-— [Barbara McClinton](http://usp.br/cienciaweb/2019/05/barbara-mcclintock-o-milho-e-o-premio-nobel/)
+— [Barbara McClinton]( http://usp.br/cienciaweb/2019/05/barbara-mcclintock-o-milho-eo-premio-nobel/)
 ]
 ]
 ]
 ]
 
 
+---
+class: center
+<a href="https://tiagoolivoto.github.io/pliman_tut/00_about.html"><i class="fas fa-laptop-code fa-10x"></i>
+
+.HUGE[
+**Live coding**
+]
 
 <!-- inicio academic icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
