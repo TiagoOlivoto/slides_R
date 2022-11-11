@@ -22,6 +22,9 @@ navbar:
     - icon: fa-television
       text: "Slides"
       menu:
+      - text: "Pliman: RBras66"
+        href: slides/pliman_rbras/index.html
+        icon: fa-file-code
       - text: "Pliman: tutorial"
         href: slides/pliman_tut/index.html
         icon: fa-file-code
