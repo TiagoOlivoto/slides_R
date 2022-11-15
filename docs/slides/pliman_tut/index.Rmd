@@ -687,7 +687,7 @@ class : center
 .lc-50[
 
 <center>
-<img src="config/avatar.jpg" alt="Avatar" style="border-radius: 50%; max-width: 50%; "></center>
+<img src="config/avatar.png" alt="Avatar" style="border-radius: 50%; max-width: 50%; "></center>
 
 <i class="far fa-envelope"></i> [tiago.olivoto@ufsc.com](mailto:tiago.olivoto@ufsc.com)<br>
 <i class="far fa-envelope"></i> [tiagoolivoto@gmail.com](mailto:tiagoolivoto@gmail.com)<br>
