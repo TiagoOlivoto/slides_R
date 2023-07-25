@@ -74,8 +74,14 @@ xaringanExtra::use_progress_bar(color = "#0051BA", location = "bottom")
 knitr::include_graphics ('figs/logos.png')
 ```
 
+---
+.Huge[Acesso aos materiais]
+```{r echo = FALSE, out.width='100%'}
+knitr::include_graphics('figs/qrcodes.png')
+```
 
 
+---
 # Motivação
 
 .lc-70[
@@ -153,9 +159,8 @@ knitr::include_graphics('figs/scheme_pixels.png')
 ---
 # O espaço de cores RGB
 
-```{r, echo = FALSE, fig.cap ="", out.height='60%'}
-library(pliman)
-image_pliman("sev_leaf.jpg") |> image_index("RGB", ncol = 3)
+```{r, echo = FALSE, fig.cap ="", out.height='100%'}
+knitr::include_graphics('figs/rgbs.png')
 ```
 
 
@@ -165,6 +170,7 @@ image_pliman("sev_leaf.jpg") |> image_index("RGB", ncol = 3)
 
 .lc-50[
 ```{r, out.width='75%', echo = TRUE, fig.cap=""}
+library(pliman)
 img <- image_import("figs/seg.jpg")
 dim(img)
 (pixels <- img@.Data[1:2, 1:2, 1:3])
