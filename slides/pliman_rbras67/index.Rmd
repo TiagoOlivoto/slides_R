@@ -1,8 +1,6 @@
 ---
 title: ""
 subtitle: ""
-# author: >
-  # Prof. Dr. <strong><a href="https://olivoto.netlify.app/" style="color: inherit;">Tiago Olivoto</a></strong>\n
 date: ''
 institute: ""
 bibliography: config/refs.bib
@@ -391,6 +389,49 @@ apply(medidas, 2, round, digits = 2) |> print_table()
 ]
 
 .Huge[...e contando.]
+
+
+
+---
+.lc-30[
+# Challenges
+## Lesões com pouco contraste
+]
+
+.rc-70[
+```{r, out.width='80%', echo = FALSE}
+knitr::include_graphics('figs/challenge.png')
+```
+]
+
+
+
+---
+.lc-30[
+# Challenges
+## Backgrounds complexos
+]
+
+.rc-70[
+```{r, out.width='90%', echo = FALSE}
+knitr::include_graphics('figs/maize_1.png')
+```
+]
+
+
+---
+.lc-30[
+# Challenges
+## Gradientes de luminosidade
+]
+
+.rc-70[
+```{r, out.width='90%', echo = FALSE}
+knitr::include_graphics('figs/maize.jpg')
+```
+
+]
+
 
 
 
