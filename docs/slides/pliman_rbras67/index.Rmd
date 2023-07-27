@@ -32,7 +32,6 @@ source("config/custom_css.R")
 source("config/setup.R")
 knitr::opts_chunk$set(out.width = "100%",
                       dev = "svg",
-                      # cache = TRUE,
                       dev.args = list(family = "Roboto Condensed",
                                       bg = NA))
 
@@ -483,9 +482,6 @@ Slides produzidos com os 📦 R
 [**xaringan**](https://github.com/yihui/xaringan )<br>
 [**xaringanExtra**]( https://github.com/gadenbuie/xaringanExtra)<br>
 <i class =" fas fa-code "></i> Veja o código no [GitHub](https://github.com/TiagoOlivoto/slides_R)<br>
-[**Imagem de fundo**](https://web.archive.org/web/20161028162317/http://www.panoramio.com/photo/99521842)
-]<br>
-
 
 ```{r echo = FALSE, out.width='100%'}
 knitr::include_graphics('figs/qrcodes.png')
