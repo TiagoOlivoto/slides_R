@@ -482,6 +482,7 @@ Slides produzidos com os 📦 R
 [**xaringan**](https://github.com/yihui/xaringan )<br>
 [**xaringanExtra**]( https://github.com/gadenbuie/xaringanExtra)<br>
 <i class =" fas fa-code "></i> Veja o código no [GitHub](https://github.com/TiagoOlivoto/slides_R)<br>
+]
 
 ```{r echo = FALSE, out.width='100%'}
 knitr::include_graphics('figs/qrcodes.png')
