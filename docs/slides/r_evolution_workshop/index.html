@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>index.knit</title>
+    <meta charset="utf-8" />
+    <script src="index_files/header-attrs-2.25/header-attrs.js"></script>
+    <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="index_files/remark-css-0.0.1/fc.css" rel="stylesheet" />
+    <link href="index_files/remark-css-0.0.1/fc-fonts.css" rel="stylesheet" />
+    <link href="index_files/animate.css-3.7.2/animate.xaringan.css" rel="stylesheet" />
+    <link href="index_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="index_files/panelset-0.2.6/panelset.js"></script>
+    <script src="index_files/mark.js-8.11.1/mark.min.js"></script>
+    <link href="index_files/xaringanExtra-search-0.0.1/search.css" rel="stylesheet" />
+    <script src="index_files/xaringanExtra-search-0.0.1/search.js"></script>
+    <script>window.addEventListener('load', function() { window.xeSearch = new RemarkSearch({"position":"bottom-left","caseSensitive":false,"showIcon":true,"autoSearch":true}) })</script>
+    <link href="index_files/tachyons-4.12.0/tachyons.min.css" rel="stylesheet" />
+    <script src="index_files/js-cookie-3.0.0/js.cookie.js"></script>
+    <script src="index_files/peerjs-1.3.1/peerjs.min.js"></script>
+    <script src="index_files/tiny.toast-1.0.0/toast.min.js"></script>
+    <link href="index_files/xaringanExtra-broadcast-0.2.6/broadcast.css" rel="stylesheet" />
+    <script src="index_files/xaringanExtra-broadcast-0.2.6/broadcast.js"></script>
+    <script src="index_files/fabric-4.3.1/fabric.min.js"></script>
+    <link href="index_files/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
+    <script src="index_files/xaringanExtra-scribble-0.0.1/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <script src="index_files/xaringanExtra-progressBar-0.0.1/progress-bar.js"></script>
+    <script src="index_files/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+    <link href="index_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="index_files/datatables-binding-0.30/datatables.js"></script>
+    <script src="index_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <link href="index_files/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="index_files/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="index_files/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="index_files/jszip-1.13.4/jszip.min.js"></script>
+    <link href="index_files/dt-ext-buttons-1.13.4/css/buttons.dataTables.min.css" rel="stylesheet" />
+    <script src="index_files/dt-ext-buttons-1.13.4/js/dataTables.buttons.min.js"></script>
+    <script src="index_files/dt-ext-buttons-1.13.4/js/buttons.html5.min.js"></script>
+    <script src="index_files/dt-ext-buttons-1.13.4/js/buttons.colVis.min.js"></script>
+    <script src="index_files/dt-ext-buttons-1.13.4/js/buttons.print.min.js"></script>
+    <link href="index_files/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="index_files/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+    <html><head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252"><script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          "HTML-CSS": {
+              scale: 85,
+              availableFonts: ["TeX"],
+          },
+          "TeX": {
+              extensions: ["color.js"]
+          }
+      });
+    </script>
+    </head><body></body></html>
+    <link rel="stylesheet" href="config/style.css" type="text/css" />
+    <link rel="stylesheet" href="config/custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+<style>.xe__progress-bar__container {
+  bottom:0;
+  opacity: 1;
+  position:absolute;
+  right:0;
+  left: 0;
+}
+.xe__progress-bar {
+  height: 0.25em;
+  background-color: #0051BA;
+  width: calc(var(--slide-current) / var(--slide-total) * 100%);
+}
+.remark-visible .xe__progress-bar {
+  animation: xe__progress-bar__wipe 200ms forwards;
+  animation-timing-function: cubic-bezier(.86,0,.07,1);
+}
+@keyframes xe__progress-bar__wipe {
+  0% { width: calc(var(--slide-previous) / var(--slide-total) * 100%); }
+  100% { width: calc(var(--slide-current) / var(--slide-total) * 100%); }
+}</style>
+
+
+&lt;img src="figs/1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+.Huge[Acesso aos materiais]
+&lt;img src="figs/18.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+# A agricultura em seus 'versionamentos'
+&lt;img src="figs/2.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Estamos na agricultura 5.0?
+&lt;img src="figs/3.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Visão geral de plataformas de fenotipagem
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figs/4.png" alt="Adaptado de Song et al. (2021)" width="75%" /&gt;
+&lt;p class="caption"&gt;Adaptado de Song et al. (2021)&lt;/p&gt;
+&lt;/div&gt;
+
+---
+# Encontramos o responsável! 
+&lt;img src="figs/5.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+--
+* Joseph Nicéphore Niepce
+* maio de 1826
+* placa de estanho revestida com betume da Judéia
+
+
+---
+# Dois séculos de evolução
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figs/6.png" alt="Exemplos de alguns sensores utilizados na agricultura 4.0" width="75%" /&gt;
+&lt;p class="caption"&gt;Exemplos de alguns sensores utilizados na agricultura 4.0&lt;/p&gt;
+&lt;/div&gt;
+
+
+---
+# A física por trás da fenotipagem de alto rendimento
+&lt;img src="figs/7.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# O espectro eletromagnético
+&lt;img src="figs/8.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+Fonte: https://bit.ly/3sMIs1J
+
+
+---
+# O espectro eletromagnético e as plantas
+&lt;img src="figs/9.png" width="82%" style="display: block; margin: auto;" /&gt;
+
+Fonte: https://bit.ly/3QRte3t
+
+
+
+---
+# Um exemplo prático
+&lt;img src="figs/10.png" width="82%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Visão geral dos níveis de fenotipagem
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="figs/11.png" alt="Adaptado de ZHAO et al. (2019)" width="80%" /&gt;
+&lt;p class="caption"&gt;Adaptado de ZHAO et al. (2019)&lt;/p&gt;
+&lt;/div&gt;
+
+
+---
+# Métodos baseados em deep learning
+&lt;img src="figs/12.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Deep learning no R
+&lt;img src="figs/13.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+---
+# Métodos baseados em threshold
+&lt;img src="figs/14.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+---
+# Ferramentas para análise de imagens no R
+&lt;img src="figs/15.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Aplicação de hoje..
+&lt;img src="figs/16.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+---
+# Motivação
+
+.lc-70[
+&lt;img src="figs/soy_leaf.png" width="55%" style="display: block; margin: auto;" /&gt;
+
+]
+.rc-30[
+* Qual é a área "lesionada" do folíolo?
+* Qual é a área do folíolo?
+* Quantas folíolos eu preciso analisar?
+]
+
+
+---
+
+# Existe uma lacuna importante a ser preenchida?
+.lc-30[
+* De um a três minutos por imagem
+* Escala baixa na coleta de dados
+* E quanto à manipulação de dados?
+* E quanto à análise de dados?
+* E quanto à apresentação de dados?
+]
+
+.rc-70[
+&lt;img src="figs/quant.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+---
+
+# Como preencher essa lacuna?
+## As imagens digitais são compostas por elementos de imagem (pixels)
+
+&lt;img src="figs/scheme_pixels.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+## Cada pixel é o resultado da adição de cores R (red) G (green) e B (blue)
+### Intensidade de cada banda define a cor
+
+---
+# O espaço de cores RGB
+
+&lt;img src="figs/rgbs.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+# Imagens são interpretadas como arrays
+
+.lc-50[
+
+```r
+library(pliman)
+img &lt;- image_import("figs/seg.jpg")
+dim(img)
+```
+
+```
+## [1] 407 509   3
+```
+
+```r
+(pixels &lt;- img@.Data[1:2, 1:2, 1:3])
+```
+
+```
+## , , 1
+## 
+##           [,1]      [,2]
+## [1,] 0.5529412 0.5607843
+## [2,] 0.5607843 0.5568627
+## 
+## , , 2
+## 
+##           [,1]      [,2]
+## [1,] 0.7098039 0.7176471
+## [2,] 0.7176471 0.7137255
+## 
+## , , 3
+## 
+##           [,1]      [,2]
+## [1,] 0.8078431 0.8196078
+## [2,] 0.8196078 0.8156863
+```
+]
+
+.rc-50[
+
+&lt;img src="index_files/figure-html/unnamed-chunk-23-1.svg" width="85%" height="85%" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+# Arrays podem ser manipulados no R!
+
+
+.panelset.sideways.left[
+.panel[.panel-name[Importar]
+
+```r
+flax &lt;- image_import("figs/seg.jpg", plot = TRUE)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-24-1.svg" width="65%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.panel[.panel-name[Thresholding]
+
+.lc-50[
+* Densidade (**B**)
+
+```r
+ind &lt;- image_index(flax,
+                   index = "B",
+                   plot = FALSE)
+plot(ind, type = "density")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-25-1.svg" width="85%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+.rc-50[
+* Raster (**B**)
+
+```r
+plot(ind, type = "raster")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-26-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+]
+
+
+
+.panel[.panel-name[Segmentação]
+.lc-50[
+
+```r
+image_index(flax, index = "B")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-27-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+.rc-50[
+
+```r
+image_segment(flax, index = "B")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-28-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+]
+
+. panel[.panel-name[Índices para segmentação]
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c6899eab3e74b6138196" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-c6899eab3e74b6138196">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["R","G","B","NR","NG","NB","GB","RB","GR","BI","BI2","SCI","GLI","HI","NGRDI","NGBDI","SI","I","S","L","VARI","HUE","HUE2","BGI","GRAY","GRAY2","GLAI","CI","SAT","SHP","RI","SAVI","GRAY2","DGCI","L*","a","b*","L*-a","L*-b","b*-a","NDVI","PSRI","GNDVI","RVI","VIN","NDRE","SAVI","TSAVI","TVI","EVI","CIG","CIRE","RESR","GDVI","REDVI","NDWI","CVI","PNDVI","CCCI","OSAVI","GOSAVI","GSAVI","BAI","GEMI","MSAVI","MSAVI2","VIG","VIRE","VARIRE","ARVI","GARI","GRVI","IPVI","LAI","MSR","NLI","RDVI","TDVI","BWDRVI","WDRVI","ARI"],["R","G","B","R / (R + G + B)","G / (R + G + B)","B / (R + G + B)","G / B","R / B","G / R","sqrt((R^2 + G^2 + B^2) / 3)","sqrt((R^2 + G^2 + B^2) / 3)","(R - G) / (R + G)","((G-R)+(G-B))/(G+R+G+B)","(2*R-G-B)/(G-B)","(G-R)/(G+R)","(G-B)/(G+B)","(R-B)/(R+B)","R + G + B","((R + G + B) - 3 * B) / (R + G + B)","(R + G + B) / 3","(G-R)/(G+R-B)","atan(2*(B-G-R)/30.5*(G-R))","atan(2*(R-G-R)/30.5*(G-B))","B/G","0.299 * R + 0.587 * G + 0.114 * B","((R^2.2 + (1.5 * G)^2.2 + (0.6 * B)^2.2) / (1 + 1.5^2.2 + 0.6^2.2))^(1/2.2)","(25 * (G - R) / (G + R - B) + 1.25)","((R - B) / R)","((max(R, G, B) - min(R, G, B)) / max(R, G, B))","(2 * (R - G - B) / (G - B))","(R^2 / (B * G^3))","(1 + 0.5)*(G-R)/(G+R+0.5)","((R^2.2+(1.5*G)^2.2+(0.6*B)^2.2)/(1+1.5^2.2+0.6^2.2))^1/2.2","((h - 60)/60 + (1 - s/100) + (1 - b/100)) / 3","(0.2126 * R + 0.7152 * G + 0.0722 * B)","0.55*( (R - (0.2126 * R + 0.7152 * G + 0.0722 * B)) / (1.0 - 0.2126))","0.55*( (B - (0.2126 * R + 0.7152 * G + 0.0722 * B)) / (1.0 - 0.0722))","((0.2126 * R + 0.7152 * G + 0.0722 * B)) - (0.55*( (R - (0.2126 * R + 0.7152 * G + 0.0722 * B)) / (1.0 - 0.2126)))","((0.2126 * R + 0.7152 * G + 0.0722 * B)) - (0.55*( (B - (0.2126 * R + 0.7152 * G + 0.0722 * B)) / (1.0 - 0.0722)))","(0.55*( (B - (0.2126 * R + 0.7152 * G + 0.0722 * B)) / (1.0 - 0.0722))) - (0.55*( (R - (0.2126 * R + 0.7152 * G + 0.0722 * B)) / (1.0 - 0.2126)))","(NIR - R) / (NIR + R)","(R-G)/RE","(NIR - G) / (NIR + G)","R/NIR","NIR/R","(NIR-RE)/(NIR+RE)","((NIR-R) / (NIR + R + 0.5) * 1 + 0.5)","(2*((NIR-2)*(R-1)))/(R+2*(NIR-1)+0.5*(1+2*2))","sqrt((NIR - R) / (NIR + R) + 0.5)","2.5*(NIR-R)/(NIR+6*R-7.5*B+1)","(NIR/G)-1","(NIR/RE)-1","NIR/RE","NIR-G","NIR-RE","(G-NIR)/(G+NIR)","NIR * (R/(G*G))","((NIR-(G+R+B))/(NIR+(G+R+B)))","((NIR-R)/(NIR+R))/((NIR-R)/(NIR+R))","(NIR-R)/(NIR+R+0.16)","(NIR-G)/(NIR+G+0.16)","((NIR-G)/(NIR+G+0.5))*(1+0.5)","1/((0.1 - R)^2 + (0.06 - NIR)^2)","(2*(NIR*NIR-R*R)+1.5*NIR+0.5*R)/(NIR+R+0.5)*(1-0.25*(2*(NIR*NIR-R*R)+1.5*NIR+0.5*R)/(NIR+R+0.5))-((R-0.125)/(1-R))","(1/2)*(2*(NIR+1)-sqrt((2*NIR+1)*2-8*(NIR-R)))","(2 * NIR + 1 - sqrt((2 * NIR + 1)^2 - 8 * (NIR - R) )) / 2","(G-R)/(G+R)","(RE-R)/(RE+R)","(RE - 1.7 * R + 0.7 * B) / (RE + 2.3 * R - 1.3 * B)","(NIR - (R - 0.1*(R-B))) / (NIR + (R - 0.1*(R-B)))","(NIR - (1.7 * (B-R))) / (NIR + (1.7 * (B-R)))","NIR / G","NIR / (NIR + R)","3.368 * (2.5*(NIR-R)/(NIR+6*R-7.5*B+1)) - 0.118","(NIR / R - 1) / (sqrt(NIR / R) + 1)","(NIR ^2 - R) / (NIR ^2 + R)","(NIR - R) / (sqrt(NIR + R))","1.5 * ((NIR - R) / (sqrt(NIR ^2 + R + 0.5)))","(0.1*NIR-B)/(0.1*NIR+B)","(0.2 * NIR - R) / (0.2 * NIR + R)","(1 / G) - (1 / RE)"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Index<\/th>\n      <th>Equation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"pageLength":6,"dom":"<<t>Bp>","buttons":["copy","excel","print"],"columnDefs":[],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+
+]
+
+.panel[.panel-name[Imagem segmentada]
+.lc-33[
+
+```r
+image_segment(
+  flax,
+  index = "B",
+  threshold = 0.2
+)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-30-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+.lc-33[
+
+```r
+image_segment(
+  flax,
+  index = "B")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-31-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.lc-33[
+
+```r
+image_segment(
+  flax,
+  index = "B",
+  threshold = 0.75
+)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-32-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+
+* Quando `threshold` é `NULL` (padrão), o método de Otsu (1979) é usado.
+
+.tiny[
+.bg-transparent.b--blue.ba.bw2.br3.shadow-5.ph2.mt2[
+*An optimal threshold is selected by the discriminant criterion, namely, so as to maximize the separability of the resulting classes in gray levels* (Otsu, 1979)
+]
+]
+]
+]
+
+
+
+---
+# &lt;i class =" fas fa-glasses "&gt;&lt;/i&gt; O pipeline do pacote
+
+
+&lt;img src="figs/workflow_pliman.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+---
+# &lt;i class =" fa fa -book"&gt;&lt;/i&gt; Referências do pacote
+
+
+.lc-50[
+&lt;img src="figs/paper_mee.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;i class =" fa fa -book"&gt;&lt;/i&gt;Veja o artigo [aqui](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13803)
+]
+
+.rc-50[
+&lt;img src="figs/paper_tpp.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;i class =" fa fa -book"&gt;&lt;/i&gt;Veja o artigo [aqui](https://link.springer.com/article/10.1007/s40858-021-00487-5)
+]
+
+
+
+
+
+---
+class: center
+
+.Huge[Agradecimentos]
+
+&lt;img src="figs/17.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+
+
+---
+# Referências
+
+
+
+Gill, T., S.K. Gill, D.K. Saini, Y. Chopra, J.P. de Koff, et al. 2022. A Comprehensive Review of High Throughput Phenotyping and Machine Learning for Plant Stress Phenotyping. Phenomics 2(3): 156–183. doi: 10.1007/s43657-022-00048-z.
+
+Li, L., Q. Zhang, and D. Huang. 2014. A Review of Imaging Techniques for Plant Phenotyping. Sensors 14(11): 20078–20111. doi: 10.3390/s141120078.
+
+
+Song, P., J. Wang, X. Guo, W. Yang, and C. Zhao. 2021. High-throughput phenotyping: Breaking through the bottleneck in future crop breeding. The Crop Journal 9(3): 633–645. doi: 10.1016/j.cj.2021.03.015.
+
+
+Zhao, C., Y. Zhang, J. Du, X. Guo, W. Wen, et al. 2019. Crop Phenomics: Current Status and Perspectives. Frontiers in Plant Science 10. doi: 10.3389/fpls.2019.00714.
+
+
+
+
+
+
+
+---
+class: center
+
+# Luz câmera {pliman}! analisando imagens de plantas no R
+
+.lc-50[
+
+&lt;center&gt;
+&lt;img src="config/avatar.png" alt="Avatar" style="border-radius: 50%; max-width: 50%; "&gt;&lt;/center&gt;
+
+&lt;i class="far fa-envelope"&gt;&lt;/i&gt; [tiago.olivoto@ufsc.com](mailto:tiago.olivoto@ufsc.com)&lt;br&gt;
+&lt;i class="fas fa-home"&gt;&lt;/i&gt; [olivoto.netlify.app](https://olivoto.netlify.app/)&lt;br&gt;
+&lt;i class="ai ai-lattes ai"&gt;&lt;/i&gt;[Lattes](http://lattes.cnpq.br/2432360896340086)&lt;br&gt;
+&lt;i class="ai ai-google-scholar ai"&gt;&lt;/i&gt;[Scholar](https://scholar.google.com/citations?user=QjxIJkcAAAAJ&amp;hl=pt-BR)&lt;br&gt;
+&lt;i class="ai ai-researchgate ai"&gt;&lt;/i&gt;[Research Gate](https://www.researchgate.net/profile/Tiago_Olivoto2)&lt;br&gt;
+&lt;i class="fab fa-twitter"&gt;&lt;/i&gt; [@tolivoto](https://twitter.com/tolivoto)&lt;br&gt;
+&lt;i class="fab fa-github-square"&gt;&lt;/i&gt; [GitHub](https://github.com/TiagoOlivoto)
+
+]
+
+.rc-50[
+
+.huge[
+Obrigado!
+]
+
+
+Slides produzidos com os 📦 R
+.tiny[
+[**xaringan**](https://github.com/yihui/xaringan )&lt;br&gt;
+[**xaringanExtra**]( https://github.com/gadenbuie/xaringanExtra)&lt;br&gt;
+&lt;i class =" fas fa-code "&gt;&lt;/i&gt; Veja o código no [GitHub](https://github.com/TiagoOlivoto/slides_R)&lt;br&gt;
+]
+
+&lt;img src="figs/18.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+]
+
+&lt;!-- inicio academic icons --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"&gt;
+&lt;!-- final academic icons --&gt;
+
+
+&lt;!-- inicio font awesome --&gt;
+&lt;script src="https://kit.fontawesome.com/1f72d6921a.js" crossorigin="anonymous"&gt;&lt;/script&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"highlightSpans": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current% / %total%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

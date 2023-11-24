@@ -1,0 +1,496 @@
+---
+title: ""
+subtitle: ""
+date: ''
+institute: ""
+bibliography: config/refs.bib
+csl: config/ABNT-UFPR-2011-Mendeley.csl
+output:
+  xaringan::moon_reader:
+    self_contained: no
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      highlightSpans: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current% / %total%"
+      ratio: "16:9"
+    includes:
+      in_header: config/MathJax.html
+    css: ["default", "fc", "fc-fonts", "config/style.css", "config/custom.css"]
+params:
+  footnote: 'Prof. Dr. Tiago Olivoto | UFSC'
+  background: 'background.png'
+  logo: 'logos.png'
+  logo_width: 1100px
+  logo_height: 550px
+---
+
+
+```{r, write_author_css, include = FALSE}
+source("config/custom_css.R")
+source("config/setup.R")
+knitr::opts_chunk$set(out.width = "100%",
+                      dev = "svg",
+                      dev.args = list(family = "Roboto Condensed",
+                                      bg = NA))
+
+# set xaringanExtra
+xaringanExtra::use_animate_css() # use animation
+xaringanExtra::use_panelset() # use pannels
+xaringanExtra::use_search(show_icon = TRUE) # search buttom
+xaringanExtra::style_search(match_background = "blue")
+xaringanExtra::use_tachyons() 
+xaringanExtra::style_share_again(
+  share_buttons = c("all")
+)
+xaringanExtra::use_broadcast()
+xaringanExtra::use_scribble()
+
+
+library(DT)
+# Function to make HTML tables
+
+print_table <- function(table, rownames = FALSE, digits = 3, ...){
+  datatable(table, rownames = rownames, extensions = 'Buttons',
+            options = list(scrollX = TRUE,
+                           pageLength = 6,
+                           dom = '<<t>Bp>',
+                           buttons = c('copy', 'excel', 'print')), ...)}
+
+```
+
+
+
+```{r xaringanExtra, echo = FALSE}
+xaringanExtra::use_progress_bar(color = "#0051BA", location = "bottom")
+```
+
+
+```{r echo = FALSE}
+knitr::include_graphics ('figs/1.png')
+```
+
+---
+.Huge[Acesso aos materiais]
+```{r echo = FALSE, out.width='90%'}
+knitr::include_graphics('figs/18.png')
+```
+
+
+
+---
+# A agricultura em seus 'versionamentos'
+```{r echo = FALSE, out.width='80%'}
+knitr::include_graphics('figs/2.png')
+```
+
+
+---
+# Estamos na agricultura 5.0?
+```{r echo = FALSE, out.width='80%'}
+knitr::include_graphics('figs/3.png')
+```
+
+
+---
+# Visão geral de plataformas de fenotipagem
+```{r echo = FALSE, out.width='75%', fig.cap="Adaptado de Song et al. (2021)"}
+knitr::include_graphics('figs/4.png')
+```
+
+---
+# Encontramos o responsável! 
+```{r echo = FALSE, out.width='85%'}
+knitr::include_graphics('figs/5.png')
+```
+
+--
+* Joseph Nicéphore Niepce
+* maio de 1826
+* placa de estanho revestida com betume da Judéia
+
+
+---
+# Dois séculos de evolução
+```{r echo = FALSE, out.width='75%', fig.cap="Exemplos de alguns sensores utilizados na agricultura 4.0"}
+knitr::include_graphics('figs/6.png')
+```
+
+
+---
+# A física por trás da fenotipagem de alto rendimento
+```{r echo = FALSE, out.width='80%'}
+knitr::include_graphics('figs/7.png')
+```
+
+
+---
+# O espectro eletromagnético
+```{r echo = FALSE, out.width='100%'}
+knitr::include_graphics('figs/8.png')
+```
+
+Fonte: https://bit.ly/3sMIs1J
+
+
+---
+# O espectro eletromagnético e as plantas
+```{r echo = FALSE, out.width='82%'}
+knitr::include_graphics('figs/9.png')
+```
+
+Fonte: https://bit.ly/3QRte3t
+
+
+
+---
+# Um exemplo prático
+```{r echo = FALSE, out.width='82%'}
+knitr::include_graphics('figs/10.png')
+```
+
+
+---
+# Visão geral dos níveis de fenotipagem
+```{r echo = FALSE, out.width='80%', fig.cap="Adaptado de ZHAO et al. (2019)"}
+knitr::include_graphics('figs/11.png')
+```
+
+
+---
+# Métodos baseados em deep learning
+```{r echo = FALSE, out.width='80%'}
+knitr::include_graphics('figs/12.png')
+```
+
+
+---
+# Deep learning no R
+```{r echo = FALSE, out.width='85%'}
+knitr::include_graphics('figs/13.png')
+```
+
+---
+# Métodos baseados em threshold
+```{r echo = FALSE, out.width='85%'}
+knitr::include_graphics('figs/14.png')
+```
+
+---
+# Ferramentas para análise de imagens no R
+```{r echo = FALSE, out.width='85%'}
+knitr::include_graphics('figs/15.png')
+```
+
+
+---
+# Aplicação de hoje..
+```{r echo = FALSE, out.width='85%'}
+knitr::include_graphics('figs/16.png')
+```
+
+
+
+
+---
+# Motivação
+
+.lc-70[
+```{r, out.width ='55%', echo = FALSE}
+knitr::include_graphics ('figs/soy_leaf.png')
+```
+
+]
+.rc-30[
+* Qual é a área "lesionada" do folíolo?
+* Qual é a área do folíolo?
+* Quantas folíolos eu preciso analisar?
+]
+
+
+---
+
+# Existe uma lacuna importante a ser preenchida?
+.lc-30[
+* De um a três minutos por imagem
+* Escala baixa na coleta de dados
+* E quanto à manipulação de dados?
+* E quanto à análise de dados?
+* E quanto à apresentação de dados?
+]
+
+.rc-70[
+```{r, out.width ='85%', echo = FALSE}
+knitr::include_graphics('figs/quant.png')
+```
+
+]
+
+
+---
+
+# Como preencher essa lacuna?
+## As imagens digitais são compostas por elementos de imagem (pixels)
+
+```{r, echo = FALSE, fig.cap=""}
+knitr::include_graphics('figs/scheme_pixels.png')
+```
+
+
+## Cada pixel é o resultado da adição de cores R (red) G (green) e B (blue)
+### Intensidade de cada banda define a cor
+
+---
+# O espaço de cores RGB
+
+```{r, echo = FALSE, fig.cap ="", out.height='100%'}
+knitr::include_graphics('figs/rgbs.png')
+```
+
+
+
+---
+# Imagens são interpretadas como arrays
+
+.lc-50[
+```{r, out.width='75%', echo = TRUE, fig.cap=""}
+library(pliman)
+img <- image_import("figs/seg.jpg")
+dim(img)
+(pixels <- img@.Data[1:2, 1:2, 1:3])
+```
+]
+
+.rc-50[
+
+```{r out.width='85%', out.height='85%', echo=FALSE}
+plot(img)
+```
+]
+
+
+---
+# Arrays podem ser manipulados no R!
+
+
+.panelset.sideways.left[
+.panel[.panel-name[Importar]
+```{r, out.width='65%'}
+flax <- image_import("figs/seg.jpg", plot = TRUE)
+```
+
+]
+
+.panel[.panel-name[Thresholding]
+
+.lc-50[
+* Densidade (**B**)
+```{r out.width ='85%'}
+ind <- image_index(flax,
+                   index = "B",
+                   plot = FALSE)
+plot(ind, type = "density")
+```
+
+]
+
+
+.rc-50[
+* Raster (**B**)
+```{r}
+plot(ind, type = "raster")
+```
+
+]
+]
+
+
+
+.panel[.panel-name[Segmentação]
+.lc-50[
+```{r, out.width='100%'}
+image_index(flax, index = "B")
+```
+
+]
+.rc-50[
+```{r, out.width='100%'}
+image_segment(flax, index = "B")
+```
+]
+
+]
+
+. panel[.panel-name[Índices para segmentação]
+```{r echo=FALSE}
+ind <- read.csv(file = system.file("indexes.csv",
+                                   package = "pliman",
+                                   mustWork = TRUE),
+                header = T,
+                sep = ";")
+print_table(ind[,1:2])
+```
+
+]
+
+.panel[.panel-name[Imagem segmentada]
+.lc-33[
+```{r, out.width='100%'}
+image_segment(
+  flax,
+  index = "B",
+  threshold = 0.2
+)
+```
+
+]
+.lc-33[
+```{r, out.width='100%'}
+image_segment(
+  flax,
+  index = "B")
+```
+]
+
+.lc-33[
+```{r, out.width='100%'}
+image_segment(
+  flax,
+  index = "B",
+  threshold = 0.75
+)
+```
+]
+
+
+* Quando `threshold` é `NULL` (padrão), o método de Otsu (1979) é usado.
+
+.tiny[
+.bg-transparent.b--blue.ba.bw2.br3.shadow-5.ph2.mt2[
+*An optimal threshold is selected by the discriminant criterion, namely, so as to maximize the separability of the resulting classes in gray levels* (Otsu, 1979)
+]
+]
+]
+]
+
+
+
+---
+# <i class =" fas fa-glasses "></i> O pipeline do pacote
+
+
+```{r, out.width='85%', echo = FALSE, fig.cap=""}
+knitr::include_graphics('figs/workflow_pliman.png')
+```
+
+
+
+
+---
+# <i class =" fa fa -book"></i> Referências do pacote
+
+
+.lc-50[
+```{r, out.width ='60%', echo = FALSE}
+knitr::include_graphics('figs/paper_mee.png')
+```
+<i class =" fa fa -book"></i>Veja o artigo [aqui](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13803)
+]
+
+.rc-50[
+```{r, out.width ='60%', echo = FALSE}
+knitr::include_graphics('figs/paper_tpp.png')
+```
+<i class =" fa fa -book"></i>Veja o artigo [aqui](https://link.springer.com/article/10.1007/s40858-021-00487-5)
+]
+
+
+
+
+
+---
+class: center
+
+.Huge[Agradecimentos]
+
+```{r echo = FALSE, out.width='85%'}
+knitr::include_graphics('figs/17.png')
+```
+
+
+
+
+
+
+---
+# Referências
+
+
+
+Gill, T., S.K. Gill, D.K. Saini, Y. Chopra, J.P. de Koff, et al. 2022. A Comprehensive Review of High Throughput Phenotyping and Machine Learning for Plant Stress Phenotyping. Phenomics 2(3): 156–183. doi: 10.1007/s43657-022-00048-z.
+
+Li, L., Q. Zhang, and D. Huang. 2014. A Review of Imaging Techniques for Plant Phenotyping. Sensors 14(11): 20078–20111. doi: 10.3390/s141120078.
+
+
+Song, P., J. Wang, X. Guo, W. Yang, and C. Zhao. 2021. High-throughput phenotyping: Breaking through the bottleneck in future crop breeding. The Crop Journal 9(3): 633–645. doi: 10.1016/j.cj.2021.03.015.
+
+
+Zhao, C., Y. Zhang, J. Du, X. Guo, W. Wen, et al. 2019. Crop Phenomics: Current Status and Perspectives. Frontiers in Plant Science 10. doi: 10.3389/fpls.2019.00714.
+
+
+
+
+
+
+
+---
+class: center
+
+# (R)evolução digital e a análise computacional de imagens no R aplicada às ciências agrárias
+
+.lc-50[
+
+<center>
+<img src="config/avatar.png" alt="Avatar" style="border-radius: 50%; max-width: 50%; "></center>
+
+<i class="far fa-envelope"></i> [tiago.olivoto@ufsc.com](mailto:tiago.olivoto@ufsc.com)<br>
+<i class="fas fa-home"></i> [olivoto.netlify.app](https://olivoto.netlify.app/)<br>
+<i class="ai ai-lattes ai"></i>[Lattes](http://lattes.cnpq.br/2432360896340086)<br>
+<i class="ai ai-google-scholar ai"></i>[Scholar](https://scholar.google.com/citations?user=QjxIJkcAAAAJ&hl=pt-BR)<br>
+<i class="ai ai-researchgate ai"></i>[Research Gate](https://www.researchgate.net/profile/Tiago_Olivoto2)<br>
+<i class="fab fa-twitter"></i> [@tolivoto](https://twitter.com/tolivoto)<br>
+<i class="fab fa-github-square"></i> [GitHub](https://github.com/TiagoOlivoto)
+
+]
+
+.rc-50[
+
+.huge[
+Obrigado!
+]
+
+
+Slides produzidos com os 📦 R
+.tiny[
+[**xaringan**](https://github.com/yihui/xaringan )<br>
+[**xaringanExtra**]( https://github.com/gadenbuie/xaringanExtra)<br>
+<i class =" fas fa-code "></i> Veja o código no [GitHub](https://github.com/TiagoOlivoto/slides_R)<br>
+]
+
+```{r echo = FALSE, out.width='100%'}
+knitr::include_graphics('figs/18.png')
+```
+
+
+
+
+]
+
+<!-- inicio academic icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<!-- final academic icons -->
+
+
+<!-- inicio font awesome -->
+<script src="https://kit.fontawesome.com/1f72d6921a.js" crossorigin="anonymous"></script>
